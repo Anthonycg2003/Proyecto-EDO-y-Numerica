@@ -100,6 +100,13 @@
 %-----------------------------------------------------------------------------------
 \maketitle
 
+\vspace{-0.1cm}
+% --- Equipo y tema (mostrar debajo del título)
+\begin{center}
+  {\large\bfseries Equipo --- Tema 4: Enfriamiento y calentamiento}
+\end{center}
+\vspace{1.0cm}
+
 %===================================================================================
 % Resumen y Abstract
 %-----------------------------------------------------------------------------------
@@ -109,47 +116,36 @@
 % Resumen en Español
 %-----------------------------------------------------------------------------------
 \begin{abstract}
-
-  Se presenta un estudio aplicado de enfriamiento post-mortem mediante EDO para
-  estimar la hora de la muerte a partir de mediciones de temperatura. En la
-  Parte A se aplica la ley de Newton para ajustar datos y obtener la estimación,
-  apoyada por isoclinas para una interpretación visual. La Parte B examina un
-  modelo no lineal con parámetro µ: se identifican equilibrios, se analiza su
-  estabilidad y se construye el diagrama de bifurcación para mostrar cambios de
-  régimen térmico. La Parte C introduce un modelo de dos compartimentos (núcleo
-  y capa externa), clasifica puntos críticos e interpreta las trayectorias en el
-  plano de fase. El enfoque combina análisis y simulaciones con aplicaciones
-  forenses.
-
+	Este proyecto aplica modelos basados en ecuaciones diferenciales ordinarias y
+	métodos numéricos al estudio del enfriamiento post‑mortem y la estimación del
+	tiempo de la muerte a partir de mediciones de temperatura. En la Parte A se
+	utiliza la ley de Newton para ajustar datos y estimar parámetros, complementada
+	con isoclinas y análisis del campo de pendientes. La Parte B analiza un
+	modelo unidimensional no lineal dependiente del parámetro $\mu$: se identifican
+	los equilibrios, se estudia su estabilidad y se construye el diagrama de
+	bifurcación. La Parte C propone un modelo de dos compartimentos (núcleo y
+	capa externa), realiza un análisis espectral para clasificar puntos críticos
+	e interpreta las trayectorias en el plano de fase. El trabajo combina
+	resultados analíticos y simulaciones numéricas (comparación de esquemas
+	numéricos) y discute las implicaciones prácticas y limitaciones del enfoque
+	en contextos forenses.
+	
 \end{abstract}
 
-%-----------------------------------------------------------------------------------
 % English Abstract
-%-----------------------------------------------------------------------------------
-\vspace{0.5cm}
-
 \begin{enabstract}
-
-	This work presents an applied study of post-mortem cooling using ODEs to
-	estimate time of death from temperature measurements. Part A uses Newton's
-	law to fit data and determine the time of death, aided by isoclines for visual
-	interpretation. Part B examines a one-dimensional nonlinear model with
-	parameter µ: equilibria are identified, stability analyzed, and a bifurcation
-	diagram constructed to illustrate transitions in thermal regime. Part C
-	proposes a two-compartment model (core and outer layer), classifies critical
-	points and interprets phase-plane trajectories. The approach combines
-	analytical results and numerical simulations with forensic applications.
-
+	We present a concise study combining ordinary differential equation models
+	and numerical methods to analyze post‑mortem cooling and support time‑of‑death
+	estimation. Part A fits Newton's law to temperature measurements and
+	interprets results using isoclines and slope fields. Part B studies a
+	one‑dimensional nonlinear model parametrized by $\mu$, locating equilibria,
+	assessing their stability and illustrating regime changes via a bifurcation
+	diagram. Part C formulates a two‑compartment (core–shell) model, classifies
+	critical points by eigenanalysis and interprets phase‑plane trajectories.
+	Numerical comparisons (Euler, improved Euler, RK4) complement the analysis
+	and the paper discusses practical implications and limitations for
+	forensic applications.
 \end{enabstract}
-
-%-----------------------------------------------------------------------------------
-% Palabras clave
-%-----------------------------------------------------------------------------------
-\begin{keywords}
-ley de enfriamiento de Newton; modelos compartimentales; isoclinas; estabilidad; métodos numéricos; termometría forense
-\end{keywords}
-
-%-----------------------------------------------------------------------------------
 % Temas
 %-----------------------------------------------------------------------------------
 \begin{topics}
@@ -157,6 +153,7 @@ ley de enfriamiento de Newton; modelos compartimentales; isoclinas; estabilidad;
 	Modelos compartimentales; análisis de estabilidad (isoclinas y plano de fase) y métodos numéricos aplicados.
 \end{topics}
 
+\vspace{5.0mm}
 
 %-----------------------------------------------------------------------------------
 % NO BORRAR ESTAS LINEAS!
@@ -189,7 +186,7 @@ ley de enfriamiento de Newton; modelos compartimentales; isoclinas; estabilidad;
 \end{minipage}
 \end{center}
 
-
+\newpage
 
 %===================================================================================
 
@@ -502,9 +499,6 @@ Esto significa que el sistema alcanza el equilibrio térmico cuando tanto el só
 %-----------------------------------------------------------------------------------
 \section{Recomendaciones}\label{sec:rec}
 
-  En esta sección puede incluir recomendaciones sobre posibles formas de continuar
-  la investigación u otros temas relacionados.
-
 	A continuación se presentan recomendaciones concretas para continuar y ampliar
 	el trabajo desarrollado:
 
@@ -536,7 +530,7 @@ Esto significa que el sistema alcanza el equilibrio térmico cuando tanto el só
 \begin{thebibliography}{99}
 %-----------------------------------------------------------------------------------
 	\bibitem{zill} Dennis G. Zill. \emph{Ecuaciones diferenciales}. (Spanish edition of
-		"Differential Equations with Boundary-Value Problems"). Cengage Learning, 2013.
+		"Differential Equations with Boundary-Value Problems"). Cengage Learning, 2009.
 
 	\bibitem{edwards_penney} C. Henry Edwards, David E. Penney. \emph{Differential
 		Equations and Boundary-Value Problems: Computing and Modeling}. 4th ed.,
@@ -557,8 +551,8 @@ Esto significa que el sistema alcanza el equilibrio térmico cuando tanto el só
 		\emph{Numerical Recipes: The Art of Scientific Computing}. 3rd ed., Cambridge
 		University Press, 2007.
 
-	\bibitem{stewart} B. E. Stewart (editor). \emph{Forensic Science and its Application},
-		capítulos sobre métodos de estimación temporal y termometría forense.
+	\bibitem{saferstein} Richard Saferstein and Tiffany Roy. \emph{Forensic Science: From the Crime Scene to the Crime Lab}, 4th Edition (eBook).
+		(Text covering forensic laboratory methods, crime-scene processing and temporal estimation techniques.)
 
 %-----------------------------------------------------------------------------------
 \end{thebibliography}
