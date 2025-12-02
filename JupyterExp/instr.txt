@@ -1,0 +1,4 @@
+codigo interactivo en jupyter notebook que permita :
+simular condiciones para diferentes parametros
+visualizar comparativas de metodos numericos
+explorar bifurcaciones y estabilidad de puntos criticos
