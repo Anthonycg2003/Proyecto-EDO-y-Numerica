@@ -82,6 +82,7 @@ def solve_A(Ta: float, T1: float, T2: float, t1_str: str, t2_str: str, Td: float
     # Calcular hora de muerte y convertir a formato 12h
     td_str: str = decimal_a_hora12_datetime(t1 + t)
     
+    return td_str
     print(f'La victima murio a las {td_str}')
 
 # Ejecutar ejemplo: temperatura ambiente 70°F, mediciones de 80°F a las 12pm y 75°F a la 1pm
@@ -89,30 +90,8 @@ solve_A(70, 80, 75, '12 pm', '1 pm', 98.6)
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Crear datos
-x = np.array([10,20,30,40,50,60,70,80,90,100])  # 50 puntos entre 0 y 10
-y=np.array([solve_A(x,80,75,'12 pm','1 pm',98.6)for p in x])
 
-
-# Crear gráfico con personalización
-plt.figure(figsize=(10, 6))  # Tamaño de la figura
-plt.plot(x, y, 
-         color='red',        # Color de la línea
-         linewidth=2,        # Grosor de línea
-         linestyle='--',     # Estilo de línea
-         marker='o',         # Marcadores en puntos
-         label='sin(x)')     # Etiqueta para la leyenda
-
-# Personalizar ejes
-plt.xlabel('Temperatura ambiente', fontsize=12)
-plt.ylabel('Hora de la muerte', fontsize=12)
-plt.title('Gráfico Temperatura ambiente vs hora de la muerte', fontsize=14)
-
-# Añadir cuadrícula
-plt.grid(True, alpha=0.3)
-
-# Añadir leyenda
-plt.legend()
-
-# Mostrar gráfico
-plt.show()
+for i in range(40,80,10):
+    print(f'A los {i} grados de temperatura ambiente la hora de la muerte es {solve_A(i,80,75, '12 pm', '1 pm', 98.6)} respetando las demas condiciones del problema')
+for i in range(100,140,10):
+    print(f'A los {i} grados de temperatura del cuerpo a la hora de la muerte {solve_A(70,80,75, '12 pm', '1 pm', i)} respetando las demas condiciones del problema')
