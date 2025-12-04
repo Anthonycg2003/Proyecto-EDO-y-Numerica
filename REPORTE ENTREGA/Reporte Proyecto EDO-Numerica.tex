@@ -236,35 +236,61 @@
 	\subsubsection{Solución}
 	\medskip
 	Por la ley de Newton del enfriamiento:
-	\begin{equation}\label{eq:newton}
-		\frac{dT}{dt} = -k\,(T-T_a),\qquad k>0.
-	\end{equation}
+\begin{equation}\label{eq:newton}
+    \frac{dT}{dt} = -k\,(T-T_a),\qquad k>0.
+\end{equation}
 
-	La solución general (con $t$ en horas desde la muerte) es
-	\begin{equation}\label{eq:solNewton}
-		T(t)=T_a + (T(0)-T_a)e^{-k t} = 70 + 28.6\,e^{-k t}.
-	\end{equation}
+Resolviendo la ecuación diferencial:
+\begin{align}
+    \frac{dT}{T - 70} &= -k \, dt, \\
+    \int\frac{dT}{T - 70} &= -k \int dt,\\
+    \ln|T - 70| &= -kt + C_1,\\
+    T - 70 &= e^{-kt + C_1} = e^{C_1}e^{-kt},\\
+    T &= Ce^{-kt} + 70 \quad \text{(donde } C = e^{C_1}\text{)}.
+\end{align}
 
-	Denotando por $t_1$ las horas transcurridas entre la muerte y las 12:00 se obtiene
-	las dos ecuaciones siguientes para los datos medidos:
-	\begin{align}
-		T(t_1) &= 70+28.6\,e^{-k t_1}=80 \\%
-		&\Rightarrow\quad e^{-k t_1}=\frac{10}{28.6}, \notag\\
-		T(t_1+1) &= 70+28.6\,e^{-k(t_1+1)}=75 \\%
-		&\Rightarrow\quad e^{-k(t_1+1)}=\frac{5}{28.6}. \notag
-	\end{align}
+\vspace{0.5em}
+\fbox{\parbox{\linewidth}{
+    \textbf{Condiciones iniciales:} $t = 0$ a las 12:00 PM, $T(0) = 80^\circ$F
+}}
 
-	Dividiendo ambas expresiones se obtiene $e^{-k}=\tfrac{1}{2}$, por tanto
-	\begin{equation}
-		k = \ln 2 \approx 0.6931\ \mathrm{h}^{-1}.
-	\end{equation}
+\begin{align}
+    80 &= Ce^{0} + 70,\\
+    C &= 10.
+\end{align}
 
-	Sustituyendo en cualquiera de las expresiones para recuperar $t_1$:
-	\begin{equation}
-		t_1 = -\frac{\ln(10/28.6)}{\ln 2} \approx 1.515\ \mathrm{h} \approx 1\ \mathrm{h}\;30\ \mathrm{min}\;54\ \mathrm{s}.
-	\end{equation}
+\vspace{0.5em}
+\fbox{\parbox{\linewidth}{
+    \textbf{Punto conocido:} $t = 1$ hora (1:00 PM), $T(1) = 75^\circ$F
+}}
 
-	Por tanto, en el marco del modelo y las hipótesis formuladas, la estimación de la hora de la muerte es aproximadamente 1.515 horas antes de las 12:00 (10:29 AM).
+\begin{align}
+    75 &= 10e^{-k(1)} + 70,\\
+    5 &= 10e^{-k},\\
+    e^{-k} &= 0.5,\\
+    -k &= \ln(0.5),\\
+    k &= -\ln(0.5) = \ln(2).
+\end{align}
+
+\vspace{0.5em}
+\fbox{\parbox{\linewidth}{
+    \textbf{Ecuación final:} $T(t) = 10e^{-\ln(2)\,t} + 70 = 10\left(\frac{1}{2}\right)^t + 70$
+}}
+
+\vspace{0.5em}
+Ahora encontramos el tiempo $t$ cuando $T = 98.6^\circ$F:
+\begin{align}
+    98.6 &= 10e^{-\ln(2)t} + 70,\\
+    28.6 &= 10e^{-\ln(2)t},\\
+    2.86 &= e^{-\ln(2)t},\\
+    \ln(2.86) &= -\ln(2)t,\\
+    t &= -\frac{\ln(2.86)}{\ln(2)} \approx -1.515.
+\end{align}
+
+\vspace{0.5em}
+\fbox{\parbox{\linewidth}{
+    \textbf{Interpretación:} El valor negativo indica que la muerte ocurrió aproximadamente 1.515 horas \textbf{antes} de las 12:00 PM, es decir, alrededor de las \textbf{10:29 AM}.
+}}
 
 	\medskip
 	\paragraph{Interpretación cualitativa e isoclinas}
@@ -276,7 +302,7 @@
 	\end{itemize}
 
 	Las soluciones decaen exponencialmente hacia $T_a$ sin cruzarse; el tiempo característico del proceso es $1/k$.
-	\newpage
+
 % --- Figura: isoclinas y campo de pendientes (Parte A)
 \begin{figure}[htb]
 	\centering
@@ -294,14 +320,14 @@ Se compararon los métodos de Euler, Euler Mejorado y Runge-Kutta 4 (RK4) con la
 
 \begin{table}[htb]
 \centering
-\caption{Comparación numérica en $t=2$ horas}
+\caption{Comparación numérica en $t=1$ hora}
 \begin{tabular}{l c r r l}
 	\toprule
-	Método & $N$ & $T(2)\,(^{\circ}\mathrm{F})$ & Error & Costo \\
+	Método & $N$ & $T(2)\,(^{\circ}\mathrm{F})$ & Error Absoluto & Costo \\
 	\midrule
-	Analítica & N/A & 72.500000 & 0.000000 & N/A \\
-	Euler & 1 & 72.516834 & 0.016834 & N \\
-	Euler Mejorado & 2 & 72.500138 & 0.000138 & 2N \\
+	Analítica & N/A & 75.000000 & 0.000000 & N/A \\
+	Euler & 1 & 74.741875 & 0.258125 & N \\
+	Euler Mejorado & 2 & 75.012333 & 0.012333 & 2N \\
 	Runge-Kutta 4 & 4 & 72.500000 & 0.000000 & 4N \\
 	\bottomrule
 \end{tabular}
@@ -339,7 +365,7 @@ Linearizando alrededor de un equilibrio $u^*$ se usa $f'(u^* )$:
 \end{itemize}
 
 \paragraph{Interpretación y diagrama}
-La rama trivial $u=0$ existe para todo $\mu$ y cambia su estabilidad en $\mu=0$. Las ramas no triviales $\pm\sqrt{-\mu}$ aparecen para $\mu<0$ y son inestables; en $\mu=0$ dichas ramas colapsan en la trivial. Debido a la simetría $u\mapsto -u$ y la estructura observada, la bifurcación corresponde a un pitchfork subcrítico: al aumentar $\mu$ a través de $0$ la solución trivial pierde estabilidad y las ramas no triviales inestables se anulan en el punto de bifurcación.
+La rama trivial $u=0$ existe para todo $\mu$ y cambia su estabilidad en $\mu=0$. Las ramas no triviales $\pm\sqrt{-\mu}$ aparecen para $\mu<0$ y son inestables; en $\mu=0$ dichas ramas colapsan en la trivial. Debido a la simetría $u\mapsto -u$ y la estructura observada, la bifurcación corresponde a una horquilla subcrítica: al aumentar $\mu$ a través de $0$ la solución trivial pierde estabilidad y las ramas no triviales inestables se anulan en el punto de bifurcación.
 
 % --- Figura: diagrama de bifurcación (insertada tras Parte B)
 \begin{figure}[htb]
@@ -461,8 +487,8 @@ Esto significa que el sistema alcanza el equilibrio térmico cuando tanto el só
 
 \begin{figure}[htb]
 	\centering
-	\IfFileExists{Figures/phase_diagram.png}{%
-		\includegraphics[width=0.7\textwidth]{Figures/phase_diagram.png}%
+	\IfFileExists{Figures/plano_de_fase.png}{%
+		\includegraphics[width=0.7\textwidth]{Figures/plano_de_fase.png}%
 	}{%
 		\centering\small\texttt{Imagen Figures/phase\_diagram.png no encontrada.}%
 	}
